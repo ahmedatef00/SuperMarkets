@@ -1,11 +1,16 @@
 package com.supermarket.supermarket.dto;
 
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 @Setter
 @Getter
+@Data
 public class SuperMarketDto {
 
 
@@ -14,4 +19,7 @@ public class SuperMarketDto {
     private String en_name;
     private String address;
     private String image;
+    private boolean active;
+
+
 }

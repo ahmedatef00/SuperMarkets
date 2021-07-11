@@ -9,3 +9,4 @@ CREATE TABLE supermarkets
 );
 
 ALTER TABLE `supermarkets` CHANGE `id` `id` INT(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `supermarkets` CHANGE `active` `active` BOOLEAN NOT NULL;
