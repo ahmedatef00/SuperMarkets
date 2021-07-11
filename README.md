@@ -8,6 +8,8 @@ The project uses the following technologies:
 * MapStruct
 * Lombok
 
+## Important Note
+   * Please add api/v1 before any route 
 
 
 ## The architecture
@@ -26,24 +28,24 @@ The project uses the following technologies:
 
 
 
-Create:
+Create:  "api/v1"
 ![Create](https://i.imgur.com/tuf9Hxf.png)
 
 
 
-readAll:
+readAll: "api/v1"
 ![readAll](https://i.imgur.com/I2lCx9a.png)
 
 
 
-Update:
+Update:  "api/v1"
 ![Update](https://i.imgur.com/I2lCx9a.png)
 
 
-de/activate:
+de/activate: "api/v1"
 ![de/activate](https://i.imgur.com/MegyOX9.png)
 
 
 
-Serve static image:
+Serve static image: "api/v1"
 ![image](https://i.imgur.com/uyDzykX.png)
