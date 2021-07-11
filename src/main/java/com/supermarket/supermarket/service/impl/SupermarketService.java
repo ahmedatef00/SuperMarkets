@@ -24,18 +24,10 @@ public class SupermarketService implements ISupermarketService {
     private final SupermarketRepository supermarketRepository;
     private final SupermarketMapper supermarketMapper;
 
-//    public Supermarket save(Supermarket supermarket) {
-//        return supermarketRepository.save(supermarket);
-//    }
 
     @Override
     public Supermarket createSuperMarket(Supermarket supermarket) {
-//        SuperMarketDto superMarketDto = supermarketMapper.mapToDto(supermarket);
-
-//        Supermarket newSupermarket = storeImage(image, savedSupermarket);
         return supermarketRepository.save(supermarket);
-
-
     }
 
     @Override

@@ -21,5 +21,4 @@ public interface SupermarketMapper {
     Supermarket mapToEntity(SuperMarketDto dto);
 
 
-
 }
