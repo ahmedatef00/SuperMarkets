@@ -21,5 +21,10 @@ public class SuperMarketDto {
     private String image;
     private boolean active;
 
-
+    public String getActive() {
+        if (active == false) {
+            return "NotActivated";
+        } else
+            return "Activated";
+    }
 }
