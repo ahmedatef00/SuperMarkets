@@ -7,9 +7,14 @@ The project uses the following technologies:
 * Maven
 * MapStruct
 * Lombok
+* spring Data
+* hibernate
 
 ## Important Note
    * Please add api/v1 before any route 
+   * there is no api/v1 before serve static images 
+   * You will find schema.sql and data.sql 
+   * you should  change application.proporeties for DB username,password
 
 
 ## The architecture
@@ -47,5 +52,5 @@ de/activate: "api/v1"
 
 
 
-Serve static image: "api/v1"
+Serve static image:
 ![image](https://i.imgur.com/uyDzykX.png)
