@@ -4,12 +4,10 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-
 import javax.imageio.ImageIO;
 
 import com.supermarket.supermarket.config.FileStorageProperties;
@@ -17,23 +15,17 @@ import com.supermarket.supermarket.exception.FileStorageException;
 import com.supermarket.supermarket.service.IFileStorageService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
-//import com.talk2amar.projects.employeeservice.exception.//;
-//import com.talk2amar.projects.employeeservice.exception.MyFileNotFoundException;
 
 @Service
 @Component
 @RequiredArgsConstructor
 
 public class FileStorageService implements IFileStorageService {
-
-    public static final String TEMP_DIR = ".\\src\\main\\resources\\static\\images\\";
 
 
     private final Path fileStorageLocation;
@@ -54,7 +46,7 @@ public class FileStorageService implements IFileStorageService {
 
         if (!(file.getOriginalFilename().endsWith(".png") || file.getOriginalFilename().endsWith(".jpeg") || file.getOriginalFilename().endsWith(".jpg")))
             throw new FileStorageException("INVALID_FILE_FORMAT");
-        File f = new File(FileStorageService.TEMP_DIR + file.getOriginalFilename());
+        File f = new File(file.getOriginalFilename());
         f.createNewFile();
         FileOutputStream fout = new FileOutputStream(f);
         fout.write(file.getBytes());
@@ -65,7 +57,7 @@ public class FileStorageService implements IFileStorageService {
         if (width > 500 || height > 500) {
             if (f.exists())
                 f.delete();
-			   throw new FileStorageException("INVALID_FILE_DIMENSIONS");
+            throw new FileStorageException("INVALID_FILE_DIMENSIONS");
         }
 
         if (f.exists())

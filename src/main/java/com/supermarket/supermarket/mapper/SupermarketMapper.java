@@ -4,6 +4,7 @@ import com.supermarket.supermarket.dto.SuperMarketDto;
 import com.supermarket.supermarket.entity.Supermarket;
 import org.mapstruct.CollectionMappingStrategy;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.List;
 
@@ -13,10 +14,11 @@ public interface SupermarketMapper {
 
     SuperMarketDto mapToDto(Supermarket t);
 
+
+    @Mapping(source = "active", target = "active")
     List<SuperMarketDto> mapToDto(List<Supermarket> t);
 
     Supermarket mapToEntity(SuperMarketDto dto);
-
 
 
 }

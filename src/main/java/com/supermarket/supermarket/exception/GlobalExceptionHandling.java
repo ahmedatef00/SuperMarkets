@@ -22,17 +22,9 @@ import java.util.List;
 @ControllerAdvice
 public class GlobalExceptionHandling extends ResponseEntityExceptionHandler {
 
-    //    @ExceptionHandler(Exception.class)
-//    public final ResponseEntity<ErrorResponse> handleAllExceptions(Exception ex, WebRequest request) {
-//        List<String> details = new ArrayList<>();
-//        details.add(ex.getLocalizedMessage());
-//        ErrorResponse error = new ErrorResponse("Server Error", HttpStatus.INTERNAL_SERVER_ERROR.toString(), details);
-//        return new ResponseEntity(error, HttpStatus.INTERNAL_SERVER_ERROR);
-//    }
-//
-//
+
     @ExceptionHandler(SupermarketNotFoundException.class)
-    public final ResponseEntity<Object> handleUserNotFoundException(SupermarketNotFoundException ex, WebRequest request) {
+    public final ResponseEntity<Object> handleSupermarketNotFoundException(SupermarketNotFoundException ex, WebRequest request) {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
         ErrorResponse error = new ErrorResponse("Supermarket Not Found", HttpStatus.NOT_FOUND.toString(), details);
@@ -40,7 +32,7 @@ public class GlobalExceptionHandling extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(FileStorageException.class)
-    public final ResponseEntity<Object> handleUserNotFoundException(FileStorageException ex, WebRequest request) {
+    public final ResponseEntity<Object> handleFileNotFoundException(FileStorageException ex, WebRequest request) {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
         ErrorResponse error = new ErrorResponse("INVALID_FILE_DIMENSIONS", HttpStatus.BAD_REQUEST.toString(), details);
@@ -48,7 +40,7 @@ public class GlobalExceptionHandling extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(MyFileNotFoundException.class)
-    public final ResponseEntity<Object> My(MyFileNotFoundException ex, WebRequest request) {
+    public final ResponseEntity<Object> handleMyFileNotFoundException(MyFileNotFoundException ex, WebRequest request) {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
         ErrorResponse error = new ErrorResponse("File Not Found", HttpStatus.NOT_FOUND.toString(), details);
@@ -56,7 +48,7 @@ public class GlobalExceptionHandling extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler(RecordNotFoundException.class)
-    public final ResponseEntity<Object> handleUserNotFoundException(RecordNotFoundException ex, WebRequest request) {
+    public final ResponseEntity<Object> handleRecordNotFoundException(RecordNotFoundException ex, WebRequest request) {
         List<String> details = new ArrayList<>();
         details.add(ex.getLocalizedMessage());
         ErrorResponse error = new ErrorResponse("Record Not Found", HttpStatus.NOT_FOUND.toString(), details);
@@ -77,7 +69,7 @@ public class GlobalExceptionHandling extends ResponseEntityExceptionHandler {
     }
 
     @ExceptionHandler({MethodArgumentTypeMismatchException.class})
-    public ResponseEntity<Object> handleConstraintViolation(
+    public ResponseEntity<Object> handleMethodArgumentTypeMismatchException(
             MethodArgumentTypeMismatchException ex, WebRequest request) {
         List<String> details = new ArrayList<String>();
             details.add(ex.getLocalizedMessage());
