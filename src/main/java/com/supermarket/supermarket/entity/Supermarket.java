@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -18,7 +19,7 @@ import javax.validation.constraints.Size;
 public class Supermarket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
+    @Basic(optional = false) //primitive type mandotry
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
@@ -47,5 +48,10 @@ public class Supermarket {
     @Column(name = "active")
     private boolean active;
 
+
+    @JoinColumn(name = "user_id", referencedColumnName = "id")
+    @ManyToOne(fetch = FetchType.LAZY)
+
+    private User user_id;
 
 }
