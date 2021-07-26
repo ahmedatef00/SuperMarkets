@@ -32,6 +32,6 @@ public class User {
 
 
     @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    List<Role> roles = new ArrayList<Role>();
+    List<Role> roleList;
 
 }

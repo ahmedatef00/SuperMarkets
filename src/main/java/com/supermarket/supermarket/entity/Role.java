@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 /**
  * The Role class is an entity model object. A Role describes a privilege level
@@ -26,5 +27,7 @@ public class Role {
     @Column(name = "name",unique = true, nullable = false)
     private String name;
 
+@ManyToMany(mappedBy = "roleList",fetch = FetchType.LAZY)
+    private List<User> userList;
 
 }
