@@ -7,6 +7,7 @@ The project uses the following technologies:
 * Maven
 * MapStruct
 * Lombok
+* JUnit
 * spring Data
 * hibernate
 

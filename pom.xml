@@ -71,14 +71,29 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
+
+
+
 		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
-			<scope>test</scope>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-core</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-commandline</artifactId>
+			<version>7.7.3</version>
 		</dependency>
 
 
-    </dependencies>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>0.9.1</version>
+		</dependency>
+
+	</dependencies>
 
 	<build>
 		<plugins>
@@ -94,6 +109,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -120,6 +136,18 @@
 						</path>
 						<!-- other annotation processors -->
 					</annotationProcessorPaths>
+				</configuration>
+
+
+			</plugin>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>7.11.2</version>
+				<configuration>
+					<url>jdbc:mysql://localhost:3306/Markets?useSSL=false</url>
+					<user>root</user>
+					<password>root</password>
 				</configuration>
 			</plugin>
 
