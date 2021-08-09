@@ -5,10 +5,10 @@ import com.supermarket.supermarket.repository.UserRepository;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 
 @Data
@@ -17,25 +17,26 @@ import java.util.List;
 
 @Service
 public class UserService {
-    @Autowired
     private UserRepository userRepository;
-    @Autowired
 
     //GET List OF ALl Users
     public List<User> getAllUsers() {
         return userRepository.findAll();
     }
 
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
+    }
 
     //Get single user by id
     public User getUserById(Integer id) {
         return userRepository.getById(id);
     }
 
-    public List<User> getUserByRoleName(String name) {
-        return userRepository.findUsersByRoleName(name);
+//    public List<User> getUserByRoleName(String name) {
+//        return userRepository.findUsersByRoleName(name);
 
-    }
+//    }
 
 
 }

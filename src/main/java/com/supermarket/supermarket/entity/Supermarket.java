@@ -49,9 +49,5 @@ public class Supermarket {
     private boolean active;
 
 
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
-
-    private User user_id;
 
 }

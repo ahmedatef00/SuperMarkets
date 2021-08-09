@@ -7,6 +7,7 @@ import com.supermarket.supermarket.exception.SupermarketNotFoundException;
 import com.supermarket.supermarket.mapper.SupermarketMapper;
 import com.supermarket.supermarket.service.impl.FileStorageService;
 import com.supermarket.supermarket.service.impl.SupermarketService;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,7 @@ import java.util.List;
 @Slf4j
 
 @RequestMapping("/api/v1")
+
 public class SuperMarketController {
 
     @Autowired
@@ -37,6 +39,7 @@ public class SuperMarketController {
 
     @GetMapping("/supermarkets")
     @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("View a list of available supermarkets")
     public ResponseEntity<List<SuperMarketDto>> findAll() {
 
         List<SuperMarketDto> Supermarket_dtos = supermarketMapper.mapToDto(supermarketService.getAllSuperMarkets());
@@ -46,6 +49,8 @@ public class SuperMarketController {
 
     @RequestMapping(value = "/supermarkets", method = RequestMethod.POST, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Create supermarket")
+
     public ResponseEntity<Supermarket> createSupermarket(
             @Valid
             @RequestParam(value = "supermarket_json", required = true) String marketJson,
@@ -92,6 +97,7 @@ public class SuperMarketController {
 
 
     @RequestMapping(value = "/supermarkets/activate/{id}", method = RequestMethod.PATCH, consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
+    @ApiOperation("Activate/deActivate SuperMarket")
 
     public ResponseEntity<Supermarket> activate(@PathVariable Long id,
                                                    @RequestParam(value = "active", required = true) boolean activate

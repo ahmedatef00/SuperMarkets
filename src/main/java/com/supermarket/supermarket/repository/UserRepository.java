@@ -8,11 +8,13 @@ import org.springframework.stereotype.Repository;
 import javax.persistence.NamedQuery;
 import java.util.Collection;
 import java.util.List;
+import java.util.Optional;
 
 //User DAO
 @Repository
-public interface UserRepository extends JpaRepository<User,Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
 
-    List<User> findUsersByRoleName(String roleName);
+    //    List<User> findUsersByRoleName(String roleName);
+    Optional<User> findByUsername(String username);
 
 }
